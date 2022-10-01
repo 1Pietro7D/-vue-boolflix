@@ -9,6 +9,7 @@
 
 <script>
 import axios from "axios";
+import { apiKey } from "@/env.js";
 import HeaderComp from "@/components/HeaderComp.vue";
 import MainComp from "@/components/MainComp.vue";
 import FooterComp from "@/components/FooterComp.vue";
@@ -24,9 +25,15 @@ export default {
     return {};
   },
   created() {
+    const BaseUrl = "https://api.themoviedb.org/3/";
+    const SearchMovie = "search/movie?";
+    const Query = "&query=";
+    console.log(BaseUrl, SearchMovie);
     axios
-      .get()
-      .then(() => {})
+      .get(BaseUrl + SearchMovie + apiKey + Query + "Jack+Reacher")
+      .then((response) => {
+        console.log(response);
+      })
       .catch((error) => {
         console.warn(error);
       });

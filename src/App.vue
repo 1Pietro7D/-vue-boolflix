@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import HeaderComp from "@/components/HeaderComp.vue";
 import MainComp from "@/components/MainComp.vue";
 import FooterComp from "@/components/FooterComp.vue";
@@ -22,7 +23,14 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created() {
+    axios
+      .get()
+      .then(() => {})
+      .catch((error) => {
+        console.warn(error);
+      });
+  },
 };
 </script>
 

@@ -1,12 +1,41 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <HeaderComp />
+    <MainComp />
+
+    <FooterComp />
+  </div>
 </template>
 
 <script>
+import HeaderComp from "@/components/HeaderComp.vue";
+import MainComp from "@/components/MainComp.vue";
+import FooterComp from "@/components/FooterComp.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    HeaderComp,
+    MainComp,
+    FooterComp,
+  },
+  data() {
+    return {};
+  },
+  created() {},
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "@/assets/style/import.scss";
+</style>
+
+<!--
+
+@import "@/assets/style/generics.scss";
+@import "@/assets/style/position.scss"; 
+@import "@/assets/style/flex.scss";
+@import "@/assets/style/grid.scss"; 
+
+@import "@/assets/style/variables.scss";  !! this must be inserted into each component !!
+-->

@@ -1,0 +1,259 @@
+.scroll_y {
+  overflow-y: scroll;
+}
+.scroll_x {
+  overflow-x: scroll;
+}
+.scroll {
+  overflow: scroll;
+}
+/* PADDING (I decimali sono con 05, al momento gli unici) */
+.pad_0 {
+  padding: 0;
+}
+.pad_05 {
+  padding: 0.5rem;
+}
+.pad_1 {
+  padding: 1rem;
+}
+.pad_2 {
+  padding: 2rem;
+}
+.pad_3 {
+  padding: 3rem;
+}
+.pad_4 {
+  padding: 4rem;
+}
+.pad_5 {
+  padding: 5rem;
+}
+.pad_y_0 {
+  padding: 0rem;
+}
+.pad_y_05 {
+  padding: 0.5rem 0;
+}
+.pad_y_1 {
+  padding: 1rem 0;
+}
+.pad_y_2 {
+  padding: 2rem 0;
+}
+.pad_y_3 {
+  padding: 3rem 0;
+}
+.pad_y_4 {
+  padding: 4rem 0;
+}
+.pad_y_5 {
+  padding: 5rem 0;
+}
+.pad_x_0 {
+  padding: 0rem;
+}
+.pad_x_05 {
+  padding: 0 0.5rem;
+}
+.pad_x_1 {
+  padding: 0 1rem;
+}
+.pad_x_2 {
+  padding: 0 2rem;
+}
+.pad_x_3 {
+  padding: 0 3rem;
+}
+.pad_x_4 {
+  padding: 0 4rem;
+}
+.pad_x_5 {
+  padding: 0 5rem;
+}
+
+/* /padding */
+
+/* gap */
+.gap_05 {
+  gap: 0.5rem;
+}
+.gap_1 {
+  gap: 1rem;
+}
+.gap_1_2 {
+  gap: 1.5rem;
+}
+.gap_2 {
+  gap: 2rem;
+}
+.gap_3 {
+  gap: 3rem;
+}
+.gap_4 {
+  gap: 4rem;
+}
+.gap_5 {
+  gap: 5rem;
+}
+.gap_y_05 {
+  row-gap: 0.5rem;
+}
+.gap_y_1 {
+  row-gap: 1rem;
+}
+.gap_y_1_2 {
+  row-gap: 1.5rem;
+}
+.gap_y_2 {
+  row-gap: 2rem;
+}
+.gap_y_3 {
+  row-gap: 3rem;
+}
+.gap_y_4 {
+  row-gap: 4rem;
+}
+.gap_y_5 {
+  row-gap: 5rem;
+}
+.gap_x_05 {
+  column-gap: 0.5rem;
+}
+.gap_x_1 {
+  column-gap: 1rem;
+}
+.gap_x_1_2 {
+  column-gap: 1.5rem;
+}
+.gap_x_2 {
+  column-gap: 2rem;
+}
+.gap_x_3 {
+  column-gap: 3rem;
+}
+.gap_x_4 {
+  column-gap: 4rem;
+}
+.gap_x_5 {
+  column-gap: 5rem;
+}
+/* /gap */
+
+.float_sx {
+  float: left;
+}
+.float_dx {
+  float: right;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/***** /UTILITIES *****/
+
+.text_center {
+  text-align: center;
+}
+.text_left {
+  text-align: left;
+}
+
+.w_100 {
+  width: 100%;
+}
+.w_40 {
+  width: 40%;
+}
+
+.h_100 {
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+
+/*** DISPLAY ***/
+
+.d_grid {
+  display: grid;
+}
+.d_flex {
+  display: flex;
+}
+.d_inline-flex {
+  display: inline-flex;
+  /* Displays an element as an inline-level flex container */
+}
+.d_inherit {
+  display: inherit;
+}
+.d_initial {
+  display: initial;
+}
+.d_inline {
+  display: inline;
+}
+.d_inline_block {
+  display: inline-block;
+}
+.d_block {
+  display: block;
+}
+.d_none {
+  display: none;
+}
+.d_list_item {
+  display: list-item;
+}
+
+/* table */
+
+.d_table {
+  display: table;
+}
+
+.d_table_caption {
+  display: table-caption;
+}
+.d_table_column_group {
+  display: table-column-group;
+}
+.d_table_header_group {
+  display: table-header-group;
+}
+.d_table_footer_group {
+  display: table-footer-group;
+}
+.d_table_row_group {
+  display: table-row-group;
+}
+.d_table_cell {
+  display: table-cell;
+}
+.d_table_column {
+  display: table-column;
+}
+.d_table_row {
+  display: table-row;
+}
+/* /table */
+
+.contents {
+  display: contents;
+  /* Makes the container disappear, making the child elements children of the element the next level up in the DOM */
+}
+.run_in {
+  display: run-in;
+  /* Displays an element as either block or inline, depending on context */
+  /* in che senso a seconda del caso? */
+}
+/* ++DA APPROFONDIRE++ */
+.webkit_inline_flex {
+  display: -webkit-inline-flex;
+  /* sembra esiste una versione ufficiale e questa.. quali sono le differenze? */
+}
+
+/*** /DISPLAY ***/

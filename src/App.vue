@@ -21,11 +21,13 @@ export default {
     FooterComp,
   },
   data() {
-    return {};
+    return { movies: [], tvSeries: [] };
   },
   methods: {
     Search(input) {
-      this.QueryApi(input.replace(" ", "+"));
+      if (input.length > 0) {
+        this.QueryApi(input.replace(" ", "+"));
+      }
     },
     QueryApi(textToSearch) {
       const BaseUrl = "https://api.themoviedb.org/3/";
@@ -43,7 +45,9 @@ export default {
           BaseUrl + SearchMovie + apiKey + "&query=" + textToSearch + LanguageIT
         )
         .then((response) => {
-          console.log(response);
+          if (response.status === 200) {
+            this.movies(response.data.results);
+          }
         })
         .catch((error) => {
           console.warn(error);
@@ -53,7 +57,9 @@ export default {
           BaseUrl + SearchTv + apiKey + "&query=" + textToSearch + LanguageIT
         )
         .then((response) => {
-          console.log(response);
+          if (response.status === 200) {
+            this.tvSeries(response.data.results);
+          }
         })
         .catch((error) => {
           console.warn(error);

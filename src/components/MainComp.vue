@@ -6,7 +6,9 @@
       <div class="grid_col_7">
         <div class="pad_2" v-for="movie in list.movies" :key="movie.id">
           <p>Title: {{ movie.title }}</p>
-          <p>Original title:{{ movie.original_title }}</p>
+          <p v-if="movie.title !== movie.original_title">
+            Original title:{{ movie.original_title }}
+          </p>
           <p>Language:<FlagComp :language="movie.original_language" /></p>
           <p>Vote:{{ parseInt(movie.vote_average / 2) }}</p>
         </div>
@@ -18,8 +20,10 @@
       <div class="grid_col_7">
         <div class="pad_2" v-for="serie in list.tvSeries" :key="serie.id">
           <p>Name {{ serie.name }}</p>
-          <p>Original name {{ serie.original_name }}</p>
-          <p>Language:{{ serie.original_language }}</p>
+          <p v-if="serie.title !== serie.original_title">
+            Original name {{ serie.original_name }}
+          </p>
+          <p>Language:<FlagComp :language="serie.original_language" /></p>
           <p>Vote:{{ parseInt(serie.vote_average / 2) }}</p>
         </div>
       </div>

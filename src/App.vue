@@ -38,8 +38,6 @@ export default {
       // Language
       const LanguageIT = "&language=it-IT";
 
-      console.log(BaseUrl, SearchMovie, SearchTv);
-
       axios
         .get(
           BaseUrl + SearchMovie + apiKey + "&query=" + textToSearch + LanguageIT
@@ -47,6 +45,7 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.list.movies = response.data.results;
+            console.log(this.list.movies[0]);
           }
         })
         .catch((error) => {

@@ -2,7 +2,6 @@
   <div id="app">
     <HeaderComp />
     <MainComp />
-
     <FooterComp />
   </div>
 </template>
@@ -26,11 +25,26 @@ export default {
   },
   created() {
     const BaseUrl = "https://api.themoviedb.org/3/";
+    // Request
     const SearchMovie = "search/movie?";
-    const Query = "&query=";
-    console.log(BaseUrl, SearchMovie);
+    const SearchTv = "search/tv?";
+    // Imput query utent
+    const Query = "Jack+Reacher";
+    // Language
+    const LanguageIT = "&language=it-IT";
+
+    console.log(BaseUrl, SearchMovie, SearchTv);
+
     axios
-      .get(BaseUrl + SearchMovie + apiKey + Query + "Jack+Reacher")
+      .get(BaseUrl + SearchMovie + apiKey + "&query=" + Query + LanguageIT)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+    axios
+      .get(BaseUrl + SearchTv + apiKey + "&query=" + Query + LanguageIT)
       .then((response) => {
         console.log(response);
       })

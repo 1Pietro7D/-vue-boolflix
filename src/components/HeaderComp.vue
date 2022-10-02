@@ -1,10 +1,7 @@
 <template>
   <header>
-    <input type="text" v-model="query" /><input
-      type="button"
-      value="Search"
-      @click="toSend"
-    />
+    <input type="text" v-model="query" @keyup.enter="toSend" />
+    <input type="button" value="Search" @click="toSend" />
   </header>
 </template>
 

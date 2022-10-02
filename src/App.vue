@@ -78,7 +78,8 @@ export default {
 @import "@/assets/style/generics.scss";
 @import "@/assets/style/position.scss"; 
 @import "@/assets/style/flex.scss";
-@import "@/assets/style/grid.scss"; 
+@import "@/assets/style/grid.scss"; !! this must be inserted into each component !!
 
+@import "@/assets/style/import.scss";
 @import "@/assets/style/variables.scss";  !! this must be inserted into each component !!
 -->

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComp />
+    <HeaderComp @inputSearch="Search" />
     <MainComp />
     <FooterComp />
   </div>
@@ -23,34 +23,42 @@ export default {
   data() {
     return {};
   },
-  created() {
-    const BaseUrl = "https://api.themoviedb.org/3/";
-    // Request
-    const SearchMovie = "search/movie?";
-    const SearchTv = "search/tv?";
-    // Imput query utent
-    const Query = "Jack+Reacher";
-    // Language
-    const LanguageIT = "&language=it-IT";
+  methods: {
+    Search(input) {
+      this.QueryApi(input.replace(" ", "+"));
+    },
+    QueryApi(textToSearch) {
+      const BaseUrl = "https://api.themoviedb.org/3/";
+      // Request
+      const SearchMovie = "search/movie?";
+      const SearchTv = "search/tv?";
 
-    console.log(BaseUrl, SearchMovie, SearchTv);
+      // Language
+      const LanguageIT = "&language=it-IT";
 
-    axios
-      .get(BaseUrl + SearchMovie + apiKey + "&query=" + Query + LanguageIT)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.warn(error);
-      });
-    axios
-      .get(BaseUrl + SearchTv + apiKey + "&query=" + Query + LanguageIT)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.warn(error);
-      });
+      console.log(BaseUrl, SearchMovie, SearchTv);
+
+      axios
+        .get(
+          BaseUrl + SearchMovie + apiKey + "&query=" + textToSearch + LanguageIT
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      axios
+        .get(
+          BaseUrl + SearchTv + apiKey + "&query=" + textToSearch + LanguageIT
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+    },
   },
 };
 </script>

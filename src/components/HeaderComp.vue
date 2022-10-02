@@ -1,11 +1,24 @@
 <template>
-  <header></header>
+  <header>
+    <input type="text" v-model="query" /><input
+      type="button"
+      value="Search"
+      @click="toSend"
+    />
+  </header>
 </template>
 
 <script>
 export default {
   name: "HeaderComp",
-  props: {},
+  data() {
+    return { query: "" };
+  },
+  methods: {
+    toSend() {
+      this.$emit("inputSearch", this.query);
+    },
+  },
 };
 </script>
 

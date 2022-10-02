@@ -42,47 +42,6 @@
   display: grid;
   grid-template-columns: repeat(10, auto);
 }
-.grid_col_1 {
-  display: grid;
-  grid-template-columns: $one;
-}
-.grid_col_2 {
-  display: grid;
-  grid-template-columns: repear(2, $two);
-}
-.grid_col_3 {
-  display: grid;
-  grid-template-columns: repear(3, $three);
-}
-.grid_col_4 {
-  display: grid;
-  grid-template-columns: repear(4, $four);
-}
-.grid_col_5 {
-  display: grid;
-  grid-template-columns: repear(5, $five);
-}
-.grid_col_6 {
-  display: grid;
-  grid-template-columns: repear(6, $six);
-}
-.grid_col_7 {
-  display: grid;
-  grid-template-columns: repear(7, $seven);
-}
-.grid_col_8 {
-  display: grid;
-  grid-template-columns: repear(8, $eight);
-}
-.grid_col_9 {
-  display: grid;
-  grid-template-columns: repear(9, $nine);
-}
-.grid_col_10 {
-  display: grid;
-  grid-template-columns: repear(10, $ten);
-}
-
 $one: 100%;
 $two: 50%;
 $three: calc(100% / 3);
@@ -93,3 +52,44 @@ $seven: calc(100% / 7);
 $eight: calc(100% / 8);
 $nine: calc(100% / 9);
 $ten: 10%;
+
+.grid_col_1 {
+  display: grid;
+  grid-template-columns: $one;
+}
+.grid_col_2 {
+  display: grid;
+  grid-template-columns: repeat(2, $two);
+}
+.grid_col_3 {
+  display: grid;
+  grid-template-columns: repeat(3, $three);
+}
+.grid_col_4 {
+  display: grid;
+  grid-template-columns: repeat(4, $four);
+}
+.grid_col_5 {
+  display: grid;
+  grid-template-columns: repeat(5, $five);
+}
+.grid_col_6 {
+  display: grid;
+  grid-template-columns: repeat(6, $six);
+}
+.grid_col_7 {
+  display: grid;
+  grid-template-columns: repeat(7, $seven);
+}
+.grid_col_8 {
+  display: grid;
+  grid-template-columns: repeat(8, $eight);
+}
+.grid_col_9 {
+  display: grid;
+  grid-template-columns: repeat(9, $nine);
+}
+.grid_col_10 {
+  display: grid;
+  grid-template-columns: repeat(10, $ten);
+}

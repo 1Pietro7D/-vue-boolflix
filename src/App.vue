@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComp @inputSearch="Search" />
-    <MainComp />
+    <MainComp :list="list" />
     <FooterComp />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     FooterComp,
   },
   data() {
-    return { movies: [], tvSeries: [] };
+    return { list: { movies: [], tvSeries: [] } };
   },
   methods: {
     Search(input) {
@@ -46,7 +46,7 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            this.movies(response.data.results);
+            this.list.movies = response.data.results;
           }
         })
         .catch((error) => {
@@ -58,7 +58,7 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            this.tvSeries(response.data.results);
+            this.list.tvSeries = response.data.results;
           }
         })
         .catch((error) => {

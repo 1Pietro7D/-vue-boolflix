@@ -4,10 +4,10 @@
       <h2 class="text_center">My film</h2>
       <br />
       <div class="grid_col_7">
-        <div class="pad_x_2" v-for="movie in list.movies" :key="movie.id">
+        <div class="pad_2" v-for="movie in list.movies" :key="movie.id">
           <p>Title: {{ movie.title }}</p>
           <p>Original title:{{ movie.original_title }}</p>
-          <p>Language:{{ movie.original_language }}</p>
+          <p>Language:<FlagComp :language="movie.original_language" /></p>
           <p>Vote:{{ parseInt(movie.vote_average / 2) }}</p>
         </div>
       </div>
@@ -16,7 +16,7 @@
       <h2 class="text_center">My series tv</h2>
       <br />
       <div class="grid_col_7">
-        <div class="pad_x_2" v-for="serie in list.tvSeries" :key="serie.id">
+        <div class="pad_2" v-for="serie in list.tvSeries" :key="serie.id">
           <p>Name {{ serie.name }}</p>
           <p>Original name {{ serie.original_name }}</p>
           <p>Language:{{ serie.original_language }}</p>
@@ -28,8 +28,10 @@
 </template>
 
 <script>
+import FlagComp from "./FlagComp.vue";
 export default {
   name: "MainComp",
+  components: { FlagComp },
   props: {
     list: Object,
   },

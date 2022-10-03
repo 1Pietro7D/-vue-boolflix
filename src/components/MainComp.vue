@@ -22,7 +22,9 @@
               Original title:{{ movie.original_title }}
             </p>
             <p>Language:<FlagComp :language="movie.original_language" /></p>
-            <p>Vote:{{ parseInt(movie.vote_average / 2) }}</p>
+            <p>
+              Vote:<StarVoteComp :vote="parseInt(movie.vote_average / 2)" />
+            </p>
             <p>Description: {{ movie.overview }}</p>
           </div>
         </div>
@@ -50,7 +52,9 @@
               Original name {{ serie.original_name }}
             </p>
             <p>Language:<FlagComp :language="serie.original_language" /></p>
-            <p>Vote:{{ parseInt(serie.vote_average / 2) }}</p>
+            <p>
+              Vote: <StarVoteComp :vote="parseInt(serie.vote_average / 2)" />
+            </p>
             <p>Description: {{ serie.overview }}</p>
           </div>
         </div>
@@ -61,9 +65,10 @@
 
 <script>
 import FlagComp from "./FlagComp.vue";
+import StarVoteComp from "./StarVoteComp.vue";
 export default {
   name: "MainComp",
-  components: { FlagComp },
+  components: { FlagComp, StarVoteComp },
   props: {
     list: Object,
   },
@@ -75,7 +80,7 @@ export default {
   methods: {
     errImg(event) {
       event.target.src =
-        "https://www.metrorollerdoors.com.au/wp-content/uploads/2018/02/unavailable-image-300x225.jpg";
+        "https://r.search.yahoo.com/_ylt=AwrEssafMjpjuy0M5YkdDQx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzc1NmQwYWJjMTM5ZDQ4MDcwYTJiYmI0ZmZjNmYwOWViBGdwb3MDNTMEaXQDYmluZw--/RV=2/RE=1664787231/RO=11/RU=https%3a%2f%2fseotomize.com%2f21-best-404-error-page-examples-must-know-best-practices%2f/RK=2/RS=Y5P_eEycW817vOrNaftkCZ4P6aI";
     },
   },
 };

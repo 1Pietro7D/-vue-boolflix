@@ -1,26 +1,14 @@
 <template>
-  <div class="grid_col_7">
-    <div
-      class="card_container"
-      v-for="(movie, index) in lista.movies"
-      :key="index"
-    >
-      <div class="card">
-        <img
-          :src="baseUrlImg + 342 + movie.poster_path"
-          alt=""
-          @error="errImg($event)"
-        />
-      </div>
-      <div class="card_back">
-        <p>Title: {{ movie.title }}</p>
-        <p v-if="movie.title !== movie.original_title">
-          Original title:{{ movie.original_title }}
-        </p>
-        <p>Language:<FlagComp :language="movie.original_language" /></p>
-        <p>Vote:<StarVoteComp :vote="Math.floor(movie.vote_average / 2)" /></p>
-        <p>Description: {{ movie.overview }}</p>
-      </div>
+  <div class="card_container">
+    <div class="card">
+      <img :src="baseUrlImg + 342 + image" alt="" @error="errImg($event)" />
+    </div>
+    <div class="card_back">
+      <p>Title: {{ title }}</p>
+      <p v-if="title !== originalTitle">Original title:{{ originalTitle }}</p>
+      <p>Language:<FlagComp :language="language" /></p>
+      <p>Vote:<StarVoteComp :vote="vote" /></p>
+      <p>Description: {{ overview }}</p>
     </div>
   </div>
 </template>
@@ -31,7 +19,12 @@ import StarVoteComp from "./StarVoteComp.vue";
 export default {
   name: "CardComp",
   props: {
-    lista: Object,
+    title: String,
+    originalTitle: String,
+    language: String,
+    vote: Number,
+    overview: String,
+    image: String,
   },
   data() {
     return {
@@ -42,7 +35,7 @@ export default {
   methods: {
     errImg(event) {
       event.target.src =
-        "https://r.search.yahoo.com/_ylt=AwrEssafMjpjuy0M5YkdDQx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzc1NmQwYWJjMTM5ZDQ4MDcwYTJiYmI0ZmZjNmYwOWViBGdwb3MDNTMEaXQDYmluZw--/RV=2/RE=1664787231/RO=11/RU=https%3a%2f%2fseotomize.com%2f21-best-404-error-page-examples-must-know-best-practices%2f/RK=2/RS=Y5P_eEycW817vOrNaftkCZ4P6aI";
+        "https://www.metrorollerdoors.com.au/wp-content/uploads/2018/02/unavailable-image-300x225.jpg";
     },
   },
 };

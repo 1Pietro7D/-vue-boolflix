@@ -2,51 +2,42 @@
   <main>
     <div v-if="list.movies.length > 0">
       <h2 class="text_center">My film</h2>
-      <br />
-      <CardComp :lista="list" />
+      <div class="grid_col_7">
+        <CardComp
+          v-for="movie in list.movies"
+          :key="movie.id"
+          :title="movie.title"
+          :originalTitle="movie.original_title"
+          :language="movie.original_language"
+          :vote="Math.floor(movie.vote_average / 2)"
+          :overview="movie.overview"
+          :image="movie.poster_path"
+        />
+      </div>
     </div>
     <div v-if="list.tvSeries.length > 0">
       <h2 class="text_center">My series tv</h2>
-      <br />
       <div class="grid_col_7">
-        <div
-          class="card_container"
-          v-for="serie in list.tvSeries"
-          :key="serie.id"
-        >
-          <div class="card">
-            <img
-              :src="baseUrlImg + 342 + serie.poster_path"
-              alt=""
-              @error="erImg($event)"
-            />
-          </div>
-          <div class="card_back">
-            <p>Name {{ serie.name }}</p>
-            <p v-if="serie.title !== serie.original_title">
-              Original name {{ serie.original_name }}
-            </p>
-            <p>Language:<FlagComp :language="serie.original_language" /></p>
-            <p>
-              Vote:
-              <StarVoteComp :vote="Math.floor(serie.vote_average / 2)" />
-              />
-            </p>
-            <p>Description: {{ serie.overview }}</p>
-          </div>
-        </div>
+        <CardComp
+          v-for="tv in list.tvSeries"
+          :key="tv.id"
+          :title="tv.name"
+          :originalTitle="tv.original_title"
+          :language="tv.original_language"
+          :vote="Math.floor(tv.vote_average / 2)"
+          :overview="tv.overview"
+          :image="tv.poster_path"
+        />
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import FlagComp from "./FlagComp.vue";
-import StarVoteComp from "./StarVoteComp.vue";
 import CardComp from "./CardComp.vue";
 export default {
   name: "MainComp",
-  components: { FlagComp, StarVoteComp, CardComp },
+  components: { CardComp },
   props: {
     list: Object,
   },
@@ -54,12 +45,6 @@ export default {
     return {
       baseUrlImg: "https://image.tmdb.org/t/p/w",
     };
-  },
-  methods: {
-    erImg(event) {
-      event.target.src =
-        "https://www.metrorollerdoors.com.au/wp-content/uploads/2018/02/unavailable-image-300x225.jpg";
-    },
   },
 };
 </script>

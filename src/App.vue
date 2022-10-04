@@ -21,7 +21,9 @@ export default {
     FooterComp,
   },
   data() {
-    return { list: { movies: [], tvSeries: [] } };
+    return {
+      list: { movies: [], tvSeries: [] },
+    };
   },
   methods: {
     Search(input) {

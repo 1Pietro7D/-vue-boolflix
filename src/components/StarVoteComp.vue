@@ -1,6 +1,6 @@
 <template>
   <span>
-    <span v-for="(x, index) in vote" :key="index">X</span>
+    <span v-for="x in vote" :key="x">X</span>
   </span>
 </template>
 

@@ -3,32 +3,7 @@
     <div v-if="list.movies.length > 0">
       <h2 class="text_center">My film</h2>
       <br />
-      <div class="grid_col_7">
-        <div
-          class="card_container"
-          v-for="movie in list.movies"
-          :key="movie.id"
-        >
-          <div class="card">
-            <img
-              :src="baseUrlImg + 342 + movie.poster_path"
-              alt=""
-              @error="errImg($event)"
-            />
-          </div>
-          <div class="card_back">
-            <p>Title: {{ movie.title }}</p>
-            <p v-if="movie.title !== movie.original_title">
-              Original title:{{ movie.original_title }}
-            </p>
-            <p>Language:<FlagComp :language="movie.original_language" /></p>
-            <p>
-              Vote:<StarVoteComp :vote="parseInt(movie.vote_average / 2)" />
-            </p>
-            <p>Description: {{ movie.overview }}</p>
-          </div>
-        </div>
-      </div>
+      <CardComp :lista="list" />
     </div>
     <div v-if="list.tvSeries.length > 0">
       <h2 class="text_center">My series tv</h2>
@@ -43,7 +18,7 @@
             <img
               :src="baseUrlImg + 342 + serie.poster_path"
               alt=""
-              @error="errImg($event)"
+              @error="erImg($event)"
             />
           </div>
           <div class="card_back">
@@ -53,7 +28,9 @@
             </p>
             <p>Language:<FlagComp :language="serie.original_language" /></p>
             <p>
-              Vote: <StarVoteComp :vote="parseInt(serie.vote_average / 2)" />
+              Vote:
+              <StarVoteComp :vote="Math.floor(serie.vote_average / 2)" />
+              />
             </p>
             <p>Description: {{ serie.overview }}</p>
           </div>
@@ -66,9 +43,10 @@
 <script>
 import FlagComp from "./FlagComp.vue";
 import StarVoteComp from "./StarVoteComp.vue";
+import CardComp from "./CardComp.vue";
 export default {
   name: "MainComp",
-  components: { FlagComp, StarVoteComp },
+  components: { FlagComp, StarVoteComp, CardComp },
   props: {
     list: Object,
   },
@@ -78,9 +56,9 @@ export default {
     };
   },
   methods: {
-    errImg(event) {
+    erImg(event) {
       event.target.src =
-        "https://r.search.yahoo.com/_ylt=AwrEssafMjpjuy0M5YkdDQx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzc1NmQwYWJjMTM5ZDQ4MDcwYTJiYmI0ZmZjNmYwOWViBGdwb3MDNTMEaXQDYmluZw--/RV=2/RE=1664787231/RO=11/RU=https%3a%2f%2fseotomize.com%2f21-best-404-error-page-examples-must-know-best-practices%2f/RK=2/RS=Y5P_eEycW817vOrNaftkCZ4P6aI";
+        "https://www.metrorollerdoors.com.au/wp-content/uploads/2018/02/unavailable-image-300x225.jpg";
     },
   },
 };
